@@ -1,5 +1,3 @@
-Microsoft Windows [Version 10.0.22631.4037]
-(c) Microsoft Corporation. All rights reserved.
 
 C:\Users\HOPELYN>snowsql -v
 Version: 1.2.32
@@ -53,35 +51,7 @@ ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>SELECT CURRENT_WAREHOUSE();
 | SF_TUTS_WH          |
 +---------------------+
 1 Row(s) produced. Time Elapsed: 0.220s
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>PUT file://C:\Users\HOPELYN\Desktop\AMMY2\
-                                 employees0.csv@sf_tuts.public.%emp_basic;
-                                                                            001003 (42000): SQL compilation error:
-syntax error line 1 at position 82 unexpected ';'.
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>PUT file://C:\Users\HOPELYN\Desktop\AMMY2\
-                                 employees0*.csv @sf_tuts.public.%emp_basic
-                                 ;
 
-253006 (n/a): File doesn't exist: ['C:\\Users\\HOPELYN\\Desktop\\AMMY2\\employees0*.csv']
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>PUT file://C:\Users\HOPELYN\Desktop\AMMY2\
-                                 employees0. csv @sf_tuts.public.%emp_basic
-                                 ;
-
-001003 (42000): SQL compilation error:
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>PUT file://C:\Users\HOPELYN\Desktop\AMMY2\employees0.csv @st_tuts.public.%emp_basic;
-002003 (02000): SQL compilation error:
-Database 'ST_TUTS' does not exist or not authorized.
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>PUT file://C:\Users\HOPELYN\Desktop\AMMY2\employees0.csv @sf_tuts.public.%emp_basic;
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>C:\Users\HOPELYN\Desktop\AMMY2\employees0
-                                 PUT file:///C:\Users\HOPELYN\Desktop\AMMY2\employees0.csv @sf_tuts.public.%emp_basic;
-001003 (42000): SQL compilation error:
-syntax error line 1 at position 0 unexpected 'C'.
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>PUT file:///C:\Users\HOPELYN\Desktop\AMMY2\employees0.csv @sf_tuts.public.%emp_basic;
-253006 (n/a): File doesn't exist: ['/C:\\Users\\HOPELYN\\Desktop\\AMMY2\\employees0.csv']
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>C:PUT file:///C:\Users\HOPELYN\Desktop\AMMY2\employees01.csv @sf_tuts.public.%emp_basic;
-001003 (42000): SQL compilation error:
-syntax error line 1 at position 0 unexpected 'C'.
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>PUT file://C:\Users\HOPELYN\Desktop\AMMY2\employees01.csv @sf_tuts.public.%emp_basic;
-253006 (n/a): File doesn't exist: ['C:\\Users\\HOPELYN\\Desktop\\AMMY2\\employees01.csv']
 ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>PUT file://C:\Users\HOPELYN\Desktop/employees0/employees01.csv @sf_tuts.public.%emp_basic;
 +-----------------+--------------------+-------------+-------------+--------------------+--------------------+----------+---------+
 | source          | target             | source_size | target_size | source_compression | target_compression | status   | message |
@@ -129,15 +99,7 @@ ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>LIST @sf_tuts.public.%emp_basic;
 | employees05.csv.gz |  304 | 8fc4fc8f4b5ca1b00e482ceba85d3a45 | Thu, 22 Aug 2024 10:09:51 GMT |
 +--------------------+------+----------------------------------+-------------------------------+
 5 Row(s) produced. Time Elapsed: 1.399s
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>COPY INTO emp_basic
-                                 FROM @%emp_basic
-                                 FILE_FORMAT =(type = csv field_optionally_
-                                 enclosed_by = '"')
-                                 PATTERN = '.*employees0[1-5].csv.gz
-                                 ON_ERROR = 'skip_file';
 
-001003 (42000): SQL compilation error:
-parse error line 5 at position 23 near '<EOF>'.
 ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>COPY INTO emp_basic
                                  FROM @%emp_basic
                                  FILE_FORMAT =(type = csv field_optionally_enclosed_by = '"')
@@ -153,6 +115,8 @@ ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>COPY INTO emp_basic
 | employees02.csv.gz | LOADED |           5 |           5 |           1 |           0 | NULL        |             NULL |                  NULL | NULL             |
 +--------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
 5 Row(s) produced. Time Elapsed: 1.622s
+
+---QUERYING DATA----
 ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>SELECT * FROM emp_basic;
 
 +------------+--------------+---------------------------+-----------------------------+--------------------+------------+
@@ -186,20 +150,7 @@ ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>SELECT * FROM emp_basic;
 | Cesar      | Hovie        | chovie9@sf_tuts.com       | 5 7th Pass                  | Miami              | 2016-12-21 |
 +------------+--------------+---------------------------+-----------------------------+--------------------+------------+
 25 Row(s) produced. Time Elapsed: 1.638s
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>INSERT INTO emp_basic VALUES ('Clementine'
-                                 ,'Adamou','cadamou@sf_tuts.com','10510 Sac
-                                 hs Road','Klenak','2017-9-22'),
-                                 ('Marlowe','De Anesy','madamouc@sf_tuts.co
-                                 .uk','36768 Northfield Plaza','2017-1-26')
-                                 ;
 
-002012 (22000): SQL compilation error:
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>INSERT INTO emp_basic VALUES ( 'Clementine','Adamou','cadamou@sf_tuts.com','10510 Sachs road','Klenak','2017-9-22'),
-                                 ('Marlowe''De Anesy','madamouc@sf_tuts.co.uk','36768 Northfield Plaza', 'Fangshan','2017-1-26');
-002012 (22000): SQL compilation error:
-Inconsistent number of values in the VALUES clause expecting 6 but got 5
-ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>
 ALICIA#SF_TUTS_WH@SF_TUTS.PUBLIC>INSERT INTO emp_basic VALUES ( 'Clementine','Adamou','cadamou@sf_tuts.com','10510 Sachs road','Klenak','2017-9-22'),
                                  ('Marlowe','De Anesy','madamouc@sf_tuts.co.uk','36768 Northfield Plaza', 'Fangshan','2017-1-26');
 +-------------------------+
